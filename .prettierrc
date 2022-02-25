@@ -1,0 +1,20 @@
+{
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 80,
+    "useTabs": false,
+    "tabWidth": 4,
+    "importOrderParserPlugins": [
+        "classProperties",
+        "typescript",
+        "decorators-legacy"
+    ],
+    "importOrder": [
+        "^@(\\w+)/(.*)$",
+        "^([@/])(.*)(?<!.less|.svg|.png|.jpg|.svga|.css)$",
+        "^([./])(.*)(?<!.less|.svg|.png|.jpg|.svga|.css)$",
+        "(\\.css|\\.less|\\.jpg|\\.png|\\.svg|\\.svga)$"
+    ],
+    "importOrderSeparation": true
+}

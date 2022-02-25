@@ -1,0 +1,15 @@
+{
+  "creator": {
+    "version": "3.4.1"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "fs-extra": "^10.0.1",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "name": "slot-tpl",
+  "type": "3d",
+  "uuid": "f28a7699-76ca-4241-8ae0-9b14c2dfead4",
+  "version": "3.4.1"
+}

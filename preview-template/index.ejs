@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <link rel="icon" href="./favicon.ico" />
+        <meta charset="utf-8" />
+        <title><%=title%></title>
+        <meta
+            name="viewport"
+            content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="full-screen" content="yes" />
+        <meta name="screen-orientation" content="portrait" />
+        <meta name="x5-fullscreen" content="true" />
+        <meta name="360-fullscreen" content="true" />
+        <meta name="renderer" content="webkit" />
+        <meta name="force-rendering" content="webkit" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+        <link rel="manifest" href="./site.webmanifest" />
+        <link rel="stylesheet" type="text/css" href="./index.css" />
+        <script src="paladin.min.js"></script>
+    </head>
+
+    <body>
+        <%- include(cocosToolBar, {config: config}) %>
+        <div id="content" class="content">
+            <div class="contentWrap">
+                <div id="GameDiv" class="wrapper">
+                    <canvas id="GameCanvas"></canvas>
+                    <div id="splash">
+                        <div class="progress-bar stripes"><span></span></div>
+                    </div>
+                    <div id="bulletin">
+                        <div id="sceneIsEmpty" class="inner"><%=tip_sceneIsEmpty%></div>
+                    </div>
+                    <div class="error" id="error">
+                        <div class="title">Error <i>(Please open the console to see detailed errors)</i></div>
+                        <div class="error-main"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="footer">
+                Created with
+                <a href="https://www.cocos.com/products" target="_blank" title="Cocos Creator">Cocos Creator</a>
+            </p>
+        </div>
+        <script type="text/javascript">
+            (function () {
+                // 游戏启动
+                paladin.checkComponents({
+                    list: ['launch'],
+                    success: function (res) {
+                        if (res.launch) {
+                            paladin.comps.launch.show({
+                                design: {
+                                    width: 1334,
+                                    height: 750,
+                                    mode: 'horizontal',
+                                },
+                                logo: {
+                                    url: 'splash.png',
+                                },
+                                background: {
+                                    color: '#030502',
+                                },
+                                load: {
+                                    color: '#ffff81',
+                                },
+                                tips: {
+                                    color: '#ffff81',
+                                },
+                                notice: {
+                                    color: '#ffff81',
+                                },
+                                maintain: {
+                                    color: '#ffff81',
+                                    strokeColor: '#fff',
+                                    url: 'maintain.jpg',
+                                },
+                            });
+                        }
+                    },
+                });
+
+                // 游戏初始化
+                paladin.init({
+                    files: [],
+                    loadType: 2,
+                    success: function (res) {},
+                    error: function () {
+                        console.log('error');
+                    },
+                });
+            })();
+        </script>
+        <!-- <% var a = 1; if (a > 0) { %> <%- include(cocosTemplate, {}) %> <% } %> -->
+    </body>
+</html>
