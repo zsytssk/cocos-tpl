@@ -1036,7 +1036,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "spriteFrame",
+    "_name": "btnLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -1318,7 +1318,7 @@
     "_id": "67KEptrppF8Z+S4rI0rAgn"
   },
   {
-    "__type__": "04bb70yIBVDHL9idOcYmoTw",
+    "__type__": "c25d4AYPmlDu7ltHd0aOek+",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1332,7 +1332,7 @@
     "btnLogin": {
       "__id__": 29
     },
-    "_id": "a1YUa6ScRG3pXV98IdKUWF"
+    "_id": "63wTRZxYZOHoxxELW7Vq/M"
   },
   {
     "__type__": "cc.SceneGlobals",

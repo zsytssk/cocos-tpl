@@ -9,6 +9,7 @@ export type Config = {
     publicKey: string;
     host: string;
     code?: string;
+    gameId?: string;
 };
 
 /** 服务器数据类型 */

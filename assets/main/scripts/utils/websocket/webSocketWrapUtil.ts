@@ -109,12 +109,18 @@ export function createComKey(name: string) {
 }
 
 export function genUrl(config: Config) {
-    const { url, publicKey, code, host, name } = config;
+    const { url, publicKey, code, host, name, gameId } = config;
 
     // 临时修改
-    let new_url = `${url}/gws?auth=${getAuth(name, publicKey)}`;
+    let new_url = `${url}?auth=${getAuth(name, publicKey)}`;
     if (code) {
         new_url += `&code=${code}`;
+    }
+    if (host) {
+        new_url += `&host=${host}`;
+    }
+    if (gameId !== '') {
+        new_url += `&gameId=${gameId}`;
     }
     return new_url;
 }
