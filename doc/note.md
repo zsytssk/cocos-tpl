@@ -1,6 +1,4 @@
--   @ques prefabManager request socket
-
-    -   prefabManager table
+-   @ques request socket
 
 -   pop 如何测试显示多个弹框
 
@@ -11,6 +9,8 @@
 -   @ques animate 如何处理 -> 自己写一个 tween ？
 
 ### end
+
+-   @todo prefabManager
 
 -   @ques SceneLoading.onLoad 在第二次切换过去的时候 还会执行吗
 

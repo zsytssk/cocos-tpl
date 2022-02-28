@@ -2,6 +2,10 @@ import { _decorator, ProgressBar, Component, Node, director } from 'cc';
 
 import { AudioManager } from '@main/utils/audioManager';
 import { PopManager } from '@main/utils/popManager';
+import {
+    createSocket,
+    waitCreateSocket,
+} from '@main/utils/websocket/webSocketWrapUtil';
 
 import { PopAlert } from '../../../bundle/pop/scripts/alert';
 
@@ -30,6 +34,8 @@ export class SceneLoading extends Component {
                 console.log(`test:>popAlert:>${type}`);
             });
         });
+
+        waitCreateSocket('test');
     }
     start() {
         paladin.checkComponents({

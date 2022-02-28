@@ -57,7 +57,6 @@ export class PopManager {
                         );
                         const comp = instance.getComponent(PopCommon);
                         comp.setPrefab(prefab);
-                        console.log(`test:>`, prefab, instance);
                         resolve(comp);
                         this.loadingMap[path] = Promise.resolve(comp);
                         instance.once(Node.EventType.NODE_DESTROYED, () => {

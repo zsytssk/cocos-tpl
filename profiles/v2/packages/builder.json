@@ -1,5 +1,61 @@
 {
   "log": {
     "level": 4
+  },
+  "BuildTaskManager": {
+    "taskMap": {
+      "1646037120431": {
+        "id": "1646037120431",
+        "progress": 1,
+        "state": "success",
+        "message": "2022-2-28 16:33 Build success in 111606 ms!",
+        "options": {
+          "name": "slot-tpl",
+          "platform": "web-desktop",
+          "buildPath": "project://build",
+          "debug": false,
+          "md5Cache": false,
+          "sourceMaps": false,
+          "replaceSplashScreen": false,
+          "mainBundleCompressionType": "merge_dep",
+          "mainBundleIsRemote": false,
+          "mergeStartScene": false,
+          "experimentalEraseModules": false,
+          "compressTexture": true,
+          "packAutoAtlas": true,
+          "startScene": "4aa34117-84a4-4ee1-867b-9fbbbc6819c9",
+          "scenes": [
+            {
+              "url": "db://assets/main/loading.scene",
+              "uuid": "4aa34117-84a4-4ee1-867b-9fbbbc6819c9",
+              "inBundle": false
+            },
+            {
+              "url": "db://assets/bundle/game/game.scene",
+              "uuid": "18a26f85-615a-4ca4-850c-efbcbf300fe0",
+              "inBundle": false
+            }
+          ],
+          "outputName": "web-desktop",
+          "packages": {
+            "web-desktop": {
+              "resolution": {
+                "designWidth": 1280,
+                "designHeight": 960
+              },
+              "polyfills": {
+                "asyncFunctions": true
+              }
+            },
+            "cocos-service": {
+              "configID": "b81684",
+              "services": []
+            }
+          }
+        },
+        "time": "2022-2-28 16:32",
+        "dirty": false
+      }
+    }
   }
 }
