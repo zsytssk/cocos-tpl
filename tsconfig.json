@@ -13,8 +13,7 @@
         "allowSyntheticDefaultImports": true,
         "allowJs": true,
         "paths": {
-            "@main/*": ["./assets/main/scripts/*"],
-            "rxjsumd": ["./node_modules/rxjs/dist/bundles/rxjs.umd.js"]
+            "@main/*": ["./assets/main/scripts/*"]
         }
     }
 }

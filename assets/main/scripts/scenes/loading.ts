@@ -29,7 +29,7 @@ export class SceneLoading extends Component {
         checkLocalTest();
 
         this.initEvent();
-        // this.connectSocket();
+        this.connectSocket();
     }
     private initEvent() {
         this.btnLogin.on(Node.EventType.TOUCH_END, () => {
