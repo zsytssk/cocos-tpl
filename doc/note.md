@@ -1,19 +1,22 @@
--   @ques pool request socket
+-   @ques prefabManager request socket
+
+    -   prefabManager table
 
 -   pop 如何测试显示多个弹框
+
 -   pop 切换场景 会不会出问题
 
--   @ques 为什么 prefab 有的要 camera 有的不要
-
 -   @ques i18n 如何处理
-
--   @ques SceneLoading.onLoad 在第二次切换过去的时候 还会执行吗
 
 -   @ques animate 如何处理 -> 自己写一个 tween ？
 
 ### end
 
-pop
+-   @ques SceneLoading.onLoad 在第二次切换过去的时候 还会执行吗
+
+-   @ques 为什么 prefab 有的要 camera 有的不要
+
+    -   添加一个空节点就可以了
 
 -   @ques cocos 的目录结构是什么
 

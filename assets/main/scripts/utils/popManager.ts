@@ -3,7 +3,6 @@ import {
     Color,
     director,
     ImageAsset,
-    instantiate,
     Layers,
     Node,
     Prefab,
@@ -17,6 +16,7 @@ import {
 
 import { AssetsManager } from './assetsManager';
 import { PopCommon } from './popCommon';
+import { PrefabManager } from './prefabManager';
 
 export type OpenDialogOpt = {
     useExist?: boolean;
@@ -40,20 +40,31 @@ export class PopManager {
     }
     static async show(path: string, opts: OpenDialogOpt = {}) {
         opts = { ...DEFAULT_CONFIG, ...opts };
-        let view_wait_open: Promise<PopCommon>;
+        let createPopTask: Promise<PopCommon>;
 
         if (opts.useExist) {
-            view_wait_open = this.loadingMap[path];
+            createPopTask = this.loadingMap[path];
         }
 
-        if (!view_wait_open) {
-            view_wait_open = this.loadingMap[path] = new Promise(
+        if (!createPopTask) {
+            createPopTask = this.loadingMap[path] = new Promise(
                 async (resolve, reject) => {
                     try {
                         const prefab = await this.loadPrefab(path);
-                        const instance = instantiate(prefab);
+                        const instance = PrefabManager.request(
+                            prefab,
+                            `${this.bundleName}/${path}`,
+                        );
                         const comp = instance.getComponent(PopCommon);
+                        comp.setPrefab(prefab);
+                        console.log(`test:>`, prefab, instance);
                         resolve(comp);
+                        this.loadingMap[path] = Promise.resolve(comp);
+                        instance.once(Node.EventType.NODE_DESTROYED, () => {
+                            if (this.loadingMap[path]) {
+                                delete this.loadingMap[path];
+                            }
+                        });
                     } catch (err) {
                         reject(err);
                     }
@@ -61,10 +72,8 @@ export class PopManager {
             );
         }
 
-        const comp = await view_wait_open;
-        this.loadingMap[path] = Promise.resolve(comp);
+        const comp = await createPopTask;
         const node = this.getNode();
-        this.checkBg(comp.showMask);
 
         if (this.popList.has(comp)) {
             this.popList.delete(comp);
@@ -72,9 +81,10 @@ export class PopManager {
         }
         this.popList.add(comp);
         comp.node.parent = node;
+        this.checkBg();
 
+        this.mask.targetOff(comp);
         if (opts.closeOnSide) {
-            this.mask.targetOff(comp);
             this.mask.on(
                 Node.EventType.TOUCH_END,
                 () => {
@@ -93,8 +103,11 @@ export class PopManager {
     static async close(comp: PopCommon) {
         for (const item of this.popList) {
             if (item === comp) {
+                const prefab = item.getPrefab();
                 item.node.parent = null;
                 this.popList.delete(item);
+                PrefabManager.recover(item.node, prefab);
+                this.checkBg();
                 break;
             }
         }
@@ -119,7 +132,7 @@ export class PopManager {
         }
         return this.node;
     }
-    private static checkBg(showMask: boolean) {
+    private static checkBg() {
         let maskNode = this.mask;
         if (!maskNode) {
             maskNode = new Node('mask');
@@ -149,10 +162,15 @@ export class PopManager {
             uiTransform.setContentSize(screen.windowSize);
         }
 
-        if (showMask) {
-            this.node.removeChild(maskNode);
-            maskNode.active = true;
-            this.node.addChild(maskNode);
+        const arr = [...this.popList];
+        for (let len = arr.length, i = len - 1; i >= 0; i--) {
+            const item = arr[i];
+            if (item.showMask) {
+                this.node.removeChild(maskNode);
+                maskNode.active = true;
+                this.node.removeChild(maskNode);
+                this.node.insertChild(maskNode, i);
+            }
         }
     }
     private static async loadPrefab(assetName: string) {

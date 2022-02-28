@@ -1,4 +1,4 @@
-import { _decorator, ProgressBar, Component, Node, director, Label } from 'cc';
+import { _decorator, Node, Label } from 'cc';
 
 import { PopCommon } from '@main/utils/popCommon';
 import { PopManager } from '@main/utils/popManager';
@@ -20,8 +20,10 @@ export class PopAlert extends PopCommon {
 
     @type(Label)
     label: Label = null;
-    static async showPop(msg: string) {
-        const pop = (await PopManager.show('prefabs/alert')) as PopAlert;
+    static async showPop(msg: string, useExist = false) {
+        const pop = (await PopManager.show('prefabs/alert', {
+            useExist,
+        })) as PopAlert;
         return pop.showMsg(msg);
     }
     onLoad() {
@@ -51,3 +53,5 @@ export class PopAlert extends PopCommon {
         this.resolve(type);
     }
 }
+
+(window as any).test = PopAlert;
