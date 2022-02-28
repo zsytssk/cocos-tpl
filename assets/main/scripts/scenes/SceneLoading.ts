@@ -1,6 +1,9 @@
 import { _decorator, ProgressBar, Component, Node, director } from 'cc';
 
 import { AudioManager } from '@main/utils/audioManager';
+import { PopManager } from '@main/utils/popManager';
+
+import { PopAlert } from '../../../bundle/pop/scripts/alert';
 
 const { ccclass, menu, type } = _decorator;
 
@@ -16,7 +19,6 @@ export class SceneLoading extends Component {
     btnLogin: Node = null;
 
     onLoad() {
-        console.log(`test:>loading:>onLoad`);
         AudioManager.playMusic('music/loading');
         this.progressBar.node.active = false;
         this.btnLogin.active = true;
@@ -24,7 +26,9 @@ export class SceneLoading extends Component {
     }
     private initEvent() {
         this.btnLogin.on(Node.EventType.TOUCH_END, () => {
-            director.loadScene('game');
+            PopAlert.showPop('this is a test').then((type) => {
+                console.log(`test:>popAlert:>${type}`);
+            });
         });
     }
     start() {

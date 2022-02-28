@@ -10,7 +10,7 @@ export class AudioManager {
     private static bundleName: string = 'audio';
     private static musicVolume: number = 0.5;
     private static effectVolume: number = 0.5;
-    public static async setBundleName(bundleName: string) {
+    public static setBundleName(bundleName: string) {
         this.bundleName = bundleName;
     }
     public static setVolume(type: AudioType, volume = 1) {
