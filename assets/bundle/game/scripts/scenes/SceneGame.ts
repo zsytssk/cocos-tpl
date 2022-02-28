@@ -1,4 +1,6 @@
-import { _decorator, Component, Node, director } from 'cc';
+import { _decorator, Component, Node } from 'cc';
+
+import { PopAlert } from '../../../pop/scripts/alert';
 
 const { ccclass, menu, type } = _decorator;
 
@@ -10,7 +12,9 @@ export class SceneGame extends Component {
     onLoad() {
         console.log(`test:>game:>onLoad`);
         this.btnLogin.on(Node.EventType.TOUCH_END, () => {
-            director.loadScene('loading');
+            PopAlert.showPop('this is a test').then((type) => {
+                console.log(`test:>popAlert:>${type}`);
+            });
         });
     }
     start() {

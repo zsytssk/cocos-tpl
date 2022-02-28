@@ -1,6 +1,7 @@
 import {
     Canvas,
     Color,
+    Director,
     director,
     ImageAsset,
     Layers,
@@ -29,16 +30,45 @@ const DEFAULT_CONFIG: OpenDialogOpt = {
 };
 
 export class PopManager {
-    static instance: PopManager = null;
     static node: Node = null;
     static mask: Node = null;
+    static isInit = false;
     private static popList: Set<PopCommon> = new Set();
     private static loadingMap: { [key: string]: Promise<PopCommon> } = {};
     private static bundleName: string = 'pop';
     public static setBundleName(bundleName: string) {
         this.bundleName = bundleName;
     }
+    static init() {
+        if (this.isInit) {
+            return;
+        }
+        this.isInit = true;
+        this.createNode();
+        this.createMask();
+        director.on(
+            Director.EVENT_BEFORE_SCENE_LOADING,
+            () => {
+                this.closeAll();
+                this.node.parent = null;
+            },
+            this.node,
+        );
+        director.on(
+            Director.EVENT_AFTER_SCENE_LAUNCH,
+            () => {
+                const canvas = director
+                    .getScene()
+                    .getChildByName('Canvas')
+                    .getComponent(Canvas);
+                this.node.parent = canvas.node;
+            },
+            this.node,
+        );
+    }
     static async show(path: string, opts: OpenDialogOpt = {}) {
+        this.init();
+
         opts = { ...DEFAULT_CONFIG, ...opts };
         let createPopTask: Promise<PopCommon>;
 
@@ -72,7 +102,7 @@ export class PopManager {
         }
 
         const comp = await createPopTask;
-        const node = this.getNode();
+        const node = this.node;
 
         if (this.popList.has(comp)) {
             this.popList.delete(comp);
@@ -99,6 +129,14 @@ export class PopManager {
 
         return comp;
     }
+    static async closeAll() {
+        for (const item of this.popList) {
+            item.close();
+        }
+        if (this.popList.size === 0) {
+            this.node.active = false;
+        }
+    }
     static async close(comp: PopCommon) {
         for (const item of this.popList) {
             if (item === comp) {
@@ -114,51 +152,49 @@ export class PopManager {
             this.node.active = false;
         }
     }
-    private static getNode() {
-        if (!this.node) {
-            const node = new Node('PopManager');
-            const uiTransform = node.addComponent(UITransform);
-            uiTransform.setContentSize(screen.windowSize);
-            this.node = node;
-        }
+    private static createNode() {
+        const node = new Node('PopManager');
+        const uiTransform = node.addComponent(UITransform);
+        uiTransform.setContentSize(screen.windowSize);
+        this.node = node;
 
-        if (!this.node.parent) {
-            const canvas = director
-                .getScene()
-                .getChildByName('Canvas')
-                .getComponent(Canvas);
-            this.node.parent = canvas.node;
-        }
-        return this.node;
+        const canvas = director
+            .getScene()
+            .getChildByName('Canvas')
+            .getComponent(Canvas);
+        this.node.parent = canvas.node;
+    }
+    private static createMask() {
+        const maskNode = new Node('mask');
+        const uiTransform = maskNode.addComponent(UITransform);
+        const widget = maskNode.addComponent(Widget);
+        const sprite = maskNode.addComponent(Sprite);
+        maskNode.layer = Layers.Enum.UI_2D;
+
+        sprite.type = Sprite.Type.SIMPLE;
+        const imageObj = new Image();
+        imageObj.src =
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAAA1BMVEX///+nxBvIAAAACklEQVQI12MAAgAABAABINItbwAAAABJRU5ErkJggg==';
+        let textureObj = new Texture2D();
+        textureObj.image = new ImageAsset(imageObj);
+        let sf = new SpriteFrame();
+        sf.texture = textureObj;
+        sprite.spriteFrame = sf;
+        sprite.color = new Color(0, 0, 0, 188);
+
+        widget.left = 0;
+        widget.right = 0;
+        widget.top = 0;
+        widget.bottom = 0;
+        widget.alignMode = Widget.AlignMode.ALWAYS;
+        maskNode.active = false;
+        uiTransform.setContentSize(screen.windowSize);
+        this.mask = maskNode;
     }
     private static checkBg() {
         let maskNode = this.mask;
         if (!maskNode) {
-            maskNode = new Node('mask');
-            const uiTransform = maskNode.addComponent(UITransform);
-            const widget = maskNode.addComponent(Widget);
-            const sprite = maskNode.addComponent(Sprite);
-            maskNode.layer = Layers.Enum.UI_2D;
-
-            sprite.type = Sprite.Type.SIMPLE;
-            const imageObj = new Image();
-            imageObj.src =
-                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAAA1BMVEX///+nxBvIAAAACklEQVQI12MAAgAABAABINItbwAAAABJRU5ErkJggg==';
-            let textureObj = new Texture2D();
-            textureObj.image = new ImageAsset(imageObj);
-            let sf = new SpriteFrame();
-            sf.texture = textureObj;
-            sprite.spriteFrame = sf;
-            sprite.color = new Color(0, 0, 0, 188);
-
-            widget.left = 0;
-            widget.right = 0;
-            widget.top = 0;
-            widget.bottom = 0;
-            widget.alignMode = Widget.AlignMode.ALWAYS;
-            this.mask = maskNode;
-            maskNode.active = false;
-            uiTransform.setContentSize(screen.windowSize);
+            return;
         }
 
         const arr = [...this.popList];

@@ -1,10 +1,14 @@
--   @ques request socket
+-   @ques request
+
+-   @opt socket Manager 集成功能 删除非必要的 Utils
+
+-   @ques i18n 如何处理
+
+### save
 
 -   pop 如何测试显示多个弹框
 
 -   pop 切换场景 会不会出问题
-
--   @ques i18n 如何处理
 
 -   @ques animate 如何处理 -> 自己写一个 tween ？
 
