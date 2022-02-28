@@ -13,6 +13,7 @@
     "uuid": "f28a7699-76ca-4241-8ae0-9b14c2dfead4",
     "version": "3.4.1",
     "dependencies": {
+        "axios": "^0.26.0",
         "rxjs": "^7.5.4"
     }
 }

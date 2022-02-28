@@ -2,6 +2,7 @@ import { Component, Node, ProgressBar, _decorator } from 'cc';
 
 import { checkLocalTest } from '@main/test/test';
 import { AudioManager } from '@main/utils/audioManager';
+import { request } from '@main/utils/request';
 import { waitCreateSocket } from '@main/utils/websocket/webSocketWrapUtil';
 
 import { PopAlert } from '../../../bundle/pop/scripts/alert';
@@ -28,12 +29,17 @@ export class SceneLoading extends Component {
         checkLocalTest();
 
         this.initEvent();
-        this.connectSocket();
+        // this.connectSocket();
     }
     private initEvent() {
         this.btnLogin.on(Node.EventType.TOUCH_END, () => {
             PopAlert.showPop('this is a test').then((type) => {
                 console.log(`test:>popAlert:>${type}`);
+            });
+            request(
+                'https://p3.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/74add08c76d34a7f898a8845b407553b?from=pc',
+            ).then((data) => {
+                console.log(`test:>request:>`, data);
             });
         });
 

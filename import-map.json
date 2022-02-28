@@ -1,6 +1,7 @@
 {
     "imports": {
         "@main/": "./assets/main/scripts/",
-        "rxjsumd": "./node_modules/rxjs/dist/bundles/rxjs.umd.js"
+        "rxjsumd": "./node_modules/rxjs/dist/bundles/rxjs.umd.js",
+        "axios": "./node_modules/axios/dist/axios.min.js"
     }
 }
