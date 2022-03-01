@@ -1,0 +1,8 @@
+{
+  "options": {
+    "web-mobile": {
+      "enterCocos": "cocos",
+      "remoteAddress": "https://www.test.com"
+    }
+  }
+}

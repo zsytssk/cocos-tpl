@@ -1,16 +1,15 @@
--   @ques request
+-   @ques cocos-build-template 这个插件有用吗
 
-    -   接下来的代码就不再 tpl 中了
-
--   @opt socket Manager 集成功能 删除非必要的 Utils
-
--   @ques i18n 如何处理
-
--   @ques 压缩模式如何处理
+-   @ques CDN 和 + 版本号如何添加
 
 ## 2022-02-28 21:13:34
 
 ### save
+
+-   @opt socket Manager 集成功能 删除非必要的 Utils
+-   @ques 压缩模式如何处理
+
+-   @ques i18n 如何处理
 
 -   pop 如何测试显示多个弹框
 
@@ -19,6 +18,10 @@
 -   @ques animate 如何处理 -> 自己写一个 tween ？
 
 ### end
+
+-   @ques request
+
+    -   接下来的代码就不再 tpl 中了
 
 -   @ques build-templates 不起作用
 
