@@ -4,23 +4,23 @@
   },
   "BuildTaskManager": {
     "taskMap": {
-      "1646037120431": {
-        "id": "1646037120431",
+      "1646101075086": {
+        "id": "1646101075086",
         "progress": 1,
         "state": "success",
-        "message": "2022-2-28 16:33 Build success in 111606 ms!",
+        "message": "2022-3-1 10:19 Build success in 39220 ms!",
         "options": {
           "name": "slot-tpl",
-          "platform": "web-desktop",
+          "platform": "web-mobile",
           "buildPath": "project://build",
           "debug": false,
           "md5Cache": false,
           "sourceMaps": false,
-          "replaceSplashScreen": false,
+          "replaceSplashScreen": true,
           "mainBundleCompressionType": "merge_dep",
           "mainBundleIsRemote": false,
           "mergeStartScene": false,
-          "experimentalEraseModules": false,
+          "experimentalEraseModules": true,
           "compressTexture": true,
           "packAutoAtlas": true,
           "startScene": "4aa34117-84a4-4ee1-867b-9fbbbc6819c9",
@@ -36,13 +36,10 @@
               "inBundle": false
             }
           ],
-          "outputName": "web-desktop",
+          "outputName": "web-mobile",
           "packages": {
-            "web-desktop": {
-              "resolution": {
-                "designWidth": 1280,
-                "designHeight": 960
-              },
+            "web-mobile": {
+              "orientation": "auto",
               "polyfills": {
                 "asyncFunctions": true
               }
@@ -53,9 +50,16 @@
             }
           }
         },
-        "time": "2022-2-28 16:32",
+        "time": "2022-3-1 10:19",
         "dirty": false
       }
     }
+  },
+  "common": {
+    "outputName": "web-mobile",
+    "replaceSplashScreen": true,
+    "experimentalEraseModules": true,
+    "mainBundleCompressionType": "merge_dep",
+    "platform": "web-mobile"
   }
 }

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "inlineSourceMap": false,
+        "outDir": "./dist",
+        "rootDir": "./source",
+        "allowJs": true,
+        "lib": ["dom", "es7"],
+        "esModuleInterop": true,
+        "moduleResolution": "node"
+    },
+    "exclude": ["./dist", "node_modules"],
+    "include": ["./source"]
+  }

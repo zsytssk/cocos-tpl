@@ -13,7 +13,8 @@
         "allowSyntheticDefaultImports": true,
         "allowJs": true,
         "paths": {
-            "@main/*": ["./assets/main/scripts/*"]
+            "@main/*": ["./assets/main/scripts/*"],
+            "i18n": ["./extensions/i18n/assets/LanguageData.ts"]
         }
     }
 }

@@ -1,0 +1,15 @@
+{
+    "textureCompressConfig": {
+        "userPreset": {
+            "e3F918z4pI8p6YIpUL2+Qi": {
+                "name": "project",
+                "options": {
+                    "web": {
+                        "png": 80,
+                        "webp": 80
+                    }
+                }
+            }
+        }
+    }
+}

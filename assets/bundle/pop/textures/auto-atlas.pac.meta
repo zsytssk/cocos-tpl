@@ -22,7 +22,7 @@
     "filterUnused": true,
     "compressSettings": {
       "useCompressTexture": true,
-      "presetId": "bfnP2uSTxGEYDL+MmJdx6Y"
+      "presetId": "e3F918z4pI8p6YIpUL2+Qi"
     },
     "textureSetting": {
       "wrapModeS": "repeat",
@@ -32,8 +32,8 @@
       "mipfilter": "none",
       "anisotropy": 0
     },
-    "removeTextureInBundle": false,
-    "removeImageInBundle": false,
-    "removeSpriteAtlasInBundle": false
+    "removeTextureInBundle": true,
+    "removeImageInBundle": true,
+    "removeSpriteAtlasInBundle": true
   }
 }

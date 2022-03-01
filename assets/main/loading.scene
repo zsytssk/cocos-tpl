@@ -26,7 +26,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 39
+      "__id__": 40
     },
     "_id": "4aa34117-84a4-4ee1-867b-9fbbbc6819c9"
   },
@@ -144,9 +144,6 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 35
-      },
-      {
         "__id__": 36
       },
       {
@@ -154,6 +151,9 @@
       },
       {
         "__id__": 38
+      },
+      {
+        "__id__": 39
       }
     ],
     "_prefab": null,
@@ -1049,10 +1049,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 33
+        "__id__": 34
       },
       {
-        "__id__": 34
+        "__id__": 35
       }
     ],
     "_prefab": null,
@@ -1099,6 +1099,9 @@
       },
       {
         "__id__": 32
+      },
+      {
+        "__id__": 33
       }
     ],
     "_prefab": null,
@@ -1142,7 +1145,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 63.38,
+      "width": 60,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1173,7 +1176,7 @@
       "b": 179,
       "a": 255
     },
-    "_string": "login",
+    "_string": "登录",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 30,
@@ -1191,6 +1194,18 @@
     "_underlineHeight": 2,
     "_cacheMode": 0,
     "_id": "e1jAfwTItGGZj6XW03bxvN"
+  },
+  {
+    "__type__": "edf98QH2D1AUoCrtQlbxFrU",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 30
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "key": "Common.BTN_LOGIN",
+    "_id": "d1pbCj60lNdpaf1y4i2HSN"
   },
   {
     "__type__": "cc.UITransform",
@@ -1337,19 +1352,19 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 40
-    },
-    "shadows": {
       "__id__": 41
     },
-    "_skybox": {
+    "shadows": {
       "__id__": 42
     },
-    "fog": {
+    "_skybox": {
       "__id__": 43
     },
-    "octree": {
+    "fog": {
       "__id__": 44
+    },
+    "octree": {
+      "__id__": 45
     }
   },
   {

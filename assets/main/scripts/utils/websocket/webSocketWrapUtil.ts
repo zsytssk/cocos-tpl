@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Observable, Subscriber } from 'rxjs';
+import rxjs, { Subscriber } from 'rxjs';
 
 import cryptoJS from '@main/libs/crypto-js.js';
 import JSEncrypt from '@main/libs/jsencrypt.min.js';
@@ -9,7 +9,7 @@ import { sleep } from '../utils';
 import { Config, WebSocketTrait, WebSocketWrapCtrl } from './webSocketManager';
 
 const { CryptoJS } = cryptoJS;
-// const { Observable } = rxjs;
+const { Observable } = rxjs;
 
 /** socket 的工具函数 */
 const common_key_map: Map<string, string> = new Map();

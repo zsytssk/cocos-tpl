@@ -2,6 +2,7 @@
     "imports": {
         "@main/": "./assets/main/scripts/",
         "rxjs": "./node_modules/rxjs/dist/bundles/rxjs.umd.js",
-        "axios": "./node_modules/axios/dist/axios.min.js"
+        "axios": "./node_modules/axios/dist/axios.min.js",
+        "i18n": "./extensions/i18n/assets/LanguageData.ts"
     }
 }

@@ -3,6 +3,10 @@
     "web-desktop": {
       "configID": "b81684",
       "services": []
+    },
+    "web-mobile": {
+      "configID": "b81684",
+      "services": []
     }
   },
   "builder-options": {

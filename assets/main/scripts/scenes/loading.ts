@@ -1,4 +1,5 @@
 import { Component, Node, ProgressBar, _decorator } from 'cc';
+import * as I18n from 'i18n';
 
 import { checkLocalTest } from '@main/test/test';
 import { AudioManager } from '@main/utils/audioManager';
@@ -26,6 +27,8 @@ export class SceneLoading extends Component {
         this.progressBar.node.active = false;
         this.btnLogin.active = true;
 
+        I18n.init('zh');
+
         checkLocalTest();
 
         this.initEvent();
@@ -35,11 +38,6 @@ export class SceneLoading extends Component {
         this.btnLogin.on(Node.EventType.TOUCH_END, () => {
             PopAlert.showPop('this is a test').then((type) => {
                 console.log(`test:>popAlert:>${type}`);
-            });
-            request(
-                'https://p3.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/74add08c76d34a7f898a8845b407553b?from=pc',
-            ).then((data) => {
-                console.log(`test:>request:>`, data);
             });
         });
 

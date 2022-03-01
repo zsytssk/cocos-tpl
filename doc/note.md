@@ -1,9 +1,14 @@
 -   @ques request
+
     -   接下来的代码就不再 tpl 中了
 
 -   @opt socket Manager 集成功能 删除非必要的 Utils
 
 -   @ques i18n 如何处理
+
+-   @ques 压缩模式如何处理
+
+## 2022-02-28 21:13:34
 
 ### save
 
@@ -14,6 +19,8 @@
 -   @ques animate 如何处理 -> 自己写一个 tween ？
 
 ### end
+
+-   @ques build-templates 不起作用
 
 -   @todo prefabManager
 
