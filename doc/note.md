@@ -1,6 +1,6 @@
--   @ques cocos-build-template 这个插件有用吗
-
 -   @ques CDN 和 + 版本号如何添加
+
+-   @ques cocos-build-template 这个插件有用吗
 
 ## 2022-02-28 21:13:34
 

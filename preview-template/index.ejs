@@ -15,9 +15,23 @@
         <meta name="renderer" content="webkit" />
         <meta name="force-rendering" content="webkit" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./favicon-16x16.png"
+        />
         <link rel="manifest" href="./site.webmanifest" />
         <link rel="stylesheet" type="text/css" href="./index.css" />
         <script src="paladin.min.js"></script>
@@ -33,20 +47,34 @@
                         <div class="progress-bar stripes"><span></span></div>
                     </div>
                     <div id="bulletin">
-                        <div id="sceneIsEmpty" class="inner"><%=tip_sceneIsEmpty%></div>
+                        <div id="sceneIsEmpty" class="inner">
+                            <%=tip_sceneIsEmpty%>
+                        </div>
                     </div>
                     <div class="error" id="error">
-                        <div class="title">Error <i>(Please open the console to see detailed errors)</i></div>
+                        <div class="title">
+                            Error
+                            <i
+                                >(Please open the console to see detailed
+                                errors)</i
+                            >
+                        </div>
                         <div class="error-main"></div>
                     </div>
                 </div>
             </div>
             <p class="footer">
                 Created with
-                <a href="https://www.cocos.com/products" target="_blank" title="Cocos Creator">Cocos Creator</a>
+                <a
+                    href="https://www.cocos.com/products"
+                    target="_blank"
+                    title="Cocos Creator"
+                    >Cocos Creator</a
+                >
             </p>
         </div>
         <script type="text/javascript">
+            var version = '<%= Date.now() %>';
             (function () {
                 // 游戏启动
                 paladin.checkComponents({

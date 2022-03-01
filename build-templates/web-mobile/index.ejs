@@ -98,6 +98,7 @@
         </div>
         <%- include(cocosTemplate, {}) %>
         <script>
+            var version = '<%= Date.now() %>';
             (function () {
                 // 游戏启动
                 paladin.checkComponents({

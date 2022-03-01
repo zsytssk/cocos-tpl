@@ -8,7 +8,7 @@
         "id": "1646101075086",
         "progress": 1,
         "state": "success",
-        "message": "2022-3-1 10:19 Build success in 39220 ms!",
+        "message": "2022-3-1 11:18 Build success in 41798 ms!",
         "options": {
           "name": "slot-tpl",
           "platform": "web-mobile",
@@ -47,10 +47,14 @@
             "cocos-service": {
               "configID": "b81684",
               "services": []
+            },
+            "cocos-build-template": {
+              "enterCocos": "cocos",
+              "remoteAddress": "https://www.test.com"
             }
           }
         },
-        "time": "2022-3-1 10:19",
+        "time": "2022-3-1 11:17",
         "dirty": false
       }
     }
