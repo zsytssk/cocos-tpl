@@ -1,10 +1,12 @@
--   @ques CDN 和 + 版本号如何添加
-
 -   @ques cocos-build-template 这个插件有用吗
 
 ## 2022-02-28 21:13:34
 
 ### save
+
+-   @ques CDN 和 + 版本号如何添加
+
+    -   版本号 应该不用加 因为文件发生改变这
 
 -   @opt socket Manager 集成功能 删除非必要的 Utils
 -   @ques 压缩模式如何处理
